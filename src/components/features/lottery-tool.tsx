@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from 'react';
+import { useMemo, useState } from 'react';
 import { CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -9,6 +9,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { Dices, Trophy, Users, Copy, Trash2 } from 'lucide-react';
 import { ScrollArea } from '../ui/scroll-area';
+import { Checkbox } from '@/components/ui/checkbox';
 
 const shuffleArray = (array: string[]) => {
   for (let i = array.length - 1; i > 0; i--) {
@@ -22,10 +23,19 @@ export default function LotteryTool() {
   const [participants, setParticipants] = useState('');
   const [winnerCount, setWinnerCount] = useState('1');
   const [winners, setWinners] = useState<string[]>([]);
+  const [history, setHistory] = useState<string[][]>([]);
+  const [removeDuplicates, setRemoveDuplicates] = useState(true);
+  const [isDrawing, setIsDrawing] = useState(false);
+  const [animatedName, setAnimatedName] = useState<string | null>(null);
   const { toast } = useToast();
 
+  const normalizedList = useMemo(() => {
+    const list = participants.split('\n').map(p => p.trim()).filter(Boolean);
+    return removeDuplicates ? Array.from(new Set(list)) : list;
+  }, [participants, removeDuplicates]);
+
   const handleDraw = () => {
-    const participantList = participants.split('\n').map(p => p.trim()).filter(Boolean);
+    const participantList = normalizedList;
     const count = parseInt(winnerCount, 10);
 
     if (participantList.length === 0) {
@@ -43,12 +53,26 @@ export default function LotteryTool() {
 
     const shuffled = shuffleArray([...participantList]);
     const drawnWinners = shuffled.slice(0, count);
-    setWinners(drawnWinners);
 
-    toast({
-      title: 'قرعه‌کشی انجام شد!',
-      description: `${drawnWinners.length} برنده انتخاب شد.`,
-    });
+    // Simple animation effect cycling names before reveal
+    setIsDrawing(true);
+    let ticks = 0;
+    const maxTicks = Math.min(40, participantList.length * 2);
+    const interval = setInterval(() => {
+      setAnimatedName(shuffled[ticks % shuffled.length]);
+      ticks++;
+      if (ticks >= maxTicks) {
+        clearInterval(interval);
+        setIsDrawing(false);
+        setAnimatedName(null);
+        setWinners(drawnWinners);
+        setHistory((prev) => [drawnWinners, ...prev].slice(0, 5));
+        toast({
+          title: 'قرعه‌کشی انجام شد!',
+          description: `${drawnWinners.length} برنده انتخاب شد.`,
+        });
+      }
+    }, 50);
   };
 
   const copyToClipboard = () => {
@@ -86,6 +110,11 @@ export default function LotteryTool() {
                 placeholder="حسین&#x0A;علی&#x0A;زهرا&#x0A;..."
                 className="min-h-[200px] text-base"
             />
+            <div className="flex items-center gap-2 pt-1 text-sm text-muted-foreground">
+              <Checkbox id="dedupe" checked={removeDuplicates} onCheckedChange={(v) => setRemoveDuplicates(Boolean(v))} />
+              <label htmlFor="dedupe">حذف نام‌های تکراری</label>
+              <span className="ml-auto">تعداد: {normalizedList.length}</span>
+            </div>
         </div>
         <div className="space-y-4">
           <div className="space-y-2">
@@ -99,10 +128,16 @@ export default function LotteryTool() {
                 className="h-14 text-2xl text-center font-display"
               />
           </div>
-           <Button onClick={handleDraw} className="w-full h-12 text-base">
+           <Button onClick={handleDraw} className="w-full h-12 text-base" disabled={isDrawing}>
             <Dices className="ml-2 h-5 w-5" />
-            شروع قرعه‌کشی
+            {isDrawing ? 'در حال قرعه‌کشی...' : 'شروع قرعه‌کشی'}
           </Button>
+          {isDrawing && (
+            <div className="text-center py-2 animate-pulse">
+              <span className="text-sm text-muted-foreground">در حال انتخاب...</span>
+              <div className="text-xl font-display mt-1">{animatedName ?? '...'}</div>
+            </div>
+          )}
         </div>
       </div>
       
@@ -133,6 +168,19 @@ export default function LotteryTool() {
                 )}
             </ScrollArea>
        </div>
+
+       {history.length > 0 && (
+         <div className="pt-2">
+            <Label className="text-muted-foreground">تاریخچه قرعه‌کشی‌های اخیر</Label>
+            <div className="mt-2 grid gap-2">
+              {history.map((h, idx) => (
+                <div key={idx} className="text-sm bg-muted/40 border rounded-md px-3 py-2">
+                  <span className="text-muted-foreground">نوبت {history.length - idx}:</span> {h.join('، ')}
+                </div>
+              ))}
+            </div>
+         </div>
+       )}
     </CardContent>
   );
 }

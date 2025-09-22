@@ -43,6 +43,10 @@ const VehiclePlateIdentifier = dynamic(() => import('@/components/features/vehic
 const TextAnalyzer = dynamic(() => import('@/components/features/text-analyzer'), { loading: () => <LoadingComponent />, ssr: false });
 const ImageOptimizer = dynamic(() => import('@/components/features/image-optimizer'), { loading: () => <LoadingComponent />, ssr: false });
 const TextSummarizer = dynamic(() => import('@/components/features/text-summarizer'), { loading: () => <LoadingComponent />, ssr: false });
+const BookReader = dynamic(() => import('@/components/features/book-reader'), { loading: () => <LoadingComponent />, ssr: false });
+const PdfWordConverter = dynamic(() => import('@/components/features/pdf-word-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const PdfImageConverter = dynamic(() => import('@/components/features/pdf-image-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const OCR = dynamic(() => import('@/components/features/ocr'), { loading: () => <LoadingComponent />, ssr: false });
 const RialTomanConverter = dynamic(() => import('@/components/features/rial-toman-converter'), { loading: () => <LoadingComponent />, ssr: false });
 const SavingsCalculator = dynamic(() => import('@/components/features/savings-calculator'), { loading: () => <LoadingComponent />, ssr: false });
 const NationalIdValidator = dynamic(() => import('@/components/features/national-id-validator'), { loading: () => <LoadingComponent />, ssr: false });
@@ -60,6 +64,7 @@ const GuessTheNumber = dynamic(() => import('@/components/features/guess-the-num
 const ConnectFour = dynamic(() => import('@/components/features/connect-four'), { loading: () => <LoadingComponent />, ssr: false });
 const SimonSays = dynamic(() => import('@/components/features/simon-says'), { loading: () => <LoadingComponent />, ssr: false });
 const OthelloGame = dynamic(() => import('@/components/features/othello-game'), { loading: () => <LoadingComponent />, ssr: false });
+const Chess = dynamic(() => import('@/components/features/chess'), { loading: () => <LoadingComponent />, ssr: false });
 const TextToSpeech = dynamic(() => import('@/components/features/text-to-speech'), { loading: () => <LoadingComponent />, ssr: false });
 const Game2048 = dynamic(() => import('@/components/features/game-2048'), { loading: () => <LoadingComponent />, ssr: false });
 const LotteryTool = dynamic(() => import('@/components/features/lottery-tool'), { loading: () => <LoadingComponent />, ssr: false });
@@ -115,10 +120,10 @@ const toolCategories = [
        { id: 'legal-financial-chatbot', title: 'چت‌بات حقوقی و مالی', icon: <Bot className="h-8 w-8 text-blue-400" />, component: LegalFinancialChatbot },
        { id: 'text-to-speech', title: 'نوشتار به گفتار', icon: <BookText className="h-8 w-8 text-fuchsia-400" />, component: TextToSpeech },
        { id: 'social-post-generator', title: 'هوش مصنوعی تولید پست', icon: <RectangleEllipsis className="h-8 w-8 text-rose-400" />, component: SocialPostGenerator },
-       { id: 'book-reader', title: 'کتابخوان آنلاین (ترجمه)', icon: <BookText className="h-8 w-8 text-lime-400" />, isWip: true },
-       { id: 'pdf-word-converter', title: 'PDF ↔ Word', icon: <RectangleEllipsis className="h-8 w-8 text-blue-400" />, isWip: true },
-       { id: 'pdf-image-converter', title: 'PDF ↔ عکس', icon: <RectangleEllipsis className="h-8 w-8 text-green-400" />, isWip: true },
-       { id: 'ocr', title: 'استخراج متن از PDF', icon: <RectangleEllipsis className="h-8 w-8 text-indigo-400" />, isWip: true },
+       { id: 'book-reader', title: 'کتابخوان آنلاین (ترجمه)', icon: <BookText className="h-8 w-8 text-lime-400" />, component: BookReader },
+       { id: 'pdf-word-converter', title: 'PDF ↔ Word', icon: <RectangleEllipsis className="h-8 w-8 text-blue-400" />, component: PdfWordConverter },
+       { id: 'pdf-image-converter', title: 'PDF ↔ عکس', icon: <RectangleEllipsis className="h-8 w-8 text-green-400" />, component: PdfImageConverter },
+       { id: 'ocr', title: 'استخراج متن از PDF/تصویر', icon: <RectangleEllipsis className="h-8 w-8 text-indigo-400" />, component: OCR },
     ]
   },
   {
@@ -192,7 +197,7 @@ const toolCategories = [
       { id: 'checkers', title: 'Checkers Royal', icon: <Square className="h-8 w-8 text-black" />, isWip: true },
       { id: 'word-hunt', title: 'Word Hunt Blitz', icon: <Search className="h-8 w-8 text-orange-500" />, isWip: true },
       { id: 'snake', title: 'مار نئونی', icon: <SnakeIcon />, isWip: true },
-      { id: 'chess', title: 'شطرنج', icon: <Crown className="h-8 w-8 text-yellow-500" />, isWip: true },
+      { id: 'chess', title: 'شطرنج', icon: <Crown className="h-8 w-8 text-yellow-500" />, component: Chess, mode: 'دو حالته' },
 	  { id: 'breakout-neon', title: 'Breakout Neon', icon: <RectangleEllipsis className="h-8 w-8 text-orange-400" />, isWip: true },
     ]
   },
