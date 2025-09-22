@@ -8,7 +8,7 @@
  */
 
 import { ai } from '@/lib/genkit';
-import { z } from 'zod';
+import { z } from 'genkit';
 
 const SocialPostInputSchema = z.object({
   topic: z.string().describe('The main subject of the social media post.'),

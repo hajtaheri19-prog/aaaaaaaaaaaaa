@@ -1,17 +1,10 @@
 import { googleAI } from '@genkit-ai/googleai';
-import { firebase } from '@genkit-ai/firebase';
-import { genkit, configureGenkit } from '@genkit-ai/core';
-import { dev } from '@/ai/dev';
+import { genkit } from 'genkit';
 
-configureGenkit({
+export const ai = genkit({
   plugins: [
-    firebase(),
     googleAI({
       apiVersion: ['v1beta'],
     }),
   ],
-  logSinks: ['firebase'],
-  enableTracingAndMetrics: true,
 });
-
-export { genkit as ai };

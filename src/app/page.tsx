@@ -21,54 +21,54 @@ const LoadingComponent = () => (
     </div>
 );
 
-const AdvancedLivePrices = dynamic(() => import('@/components/features/advanced-live-prices'), { loading: () => <LoadingComponent /> });
-const UnitConverter = dynamic(() => import('@/components/features/unit-converter'), { loading: () => <LoadingComponent /> });
-const CurrencyConverter = dynamic(() => import('@/components/features/currency-converter'), { loading: () => <LoadingComponent /> });
-const DateConverter = dynamic(() => import('@/components/features/date-converter'), { loading: () => <LoadingComponent /> });
-const CryptoConverter = dynamic(() => import('@/components/features/crypto-converter'), { loading: () => <LoadingComponent /> });
-const AgeCalculator = dynamic(() => import('@/components/features/age-calculator'), { loading: () => <LoadingComponent /> });
-const BmiCalculator = dynamic(() => import('@/components/features/bmi-calculator'), { loading: () => <LoadingComponent /> });
-const PercentageCalculator = dynamic(() => import('@/components/features/percentage-calculator'), { loading: () => <LoadingComponent /> });
-const LoanCalculator = dynamic(() => import('@/components/features/loan-calculator'), { loading: () => <LoadingComponent /> });
-const Stopwatch = dynamic(() => import('@/components/features/stopwatch'), { loading: () => <LoadingComponent /> });
-const CountdownTimer = dynamic(() => import('@/components/features/countdown-timer'), { loading: () => <LoadingComponent /> });
-const DepositCalculator = dynamic(() => import('@/components/features/deposit-calculator'), { loading: () => <LoadingComponent /> });
-const NumberToWordsConverter = dynamic(() => import('@/components/features/number-to-words-converter'), { loading: () => <LoadingComponent /> });
-const NumberSystemConverter = dynamic(() => import('@/components/features/number-system-converter'), { loading: () => <LoadingComponent /> });
-const PasswordGenerator = dynamic(() => import('@/components/features/password-generator'), { loading: () => <LoadingComponent /> });
-const RandomNumberGenerator = dynamic(() => import('@/components/features/random-number-generator'), { loading: () => <LoadingComponent /> });
-const BinaryConverter = dynamic(() => import('@/components/features/binary-converter'), { loading: () => <LoadingComponent /> });
-const DistanceCalculator = dynamic(() => import('@/components/features/distance-calculator'), { loading: () => <LoadingComponent /> });
-const VehiclePlateIdentifier = dynamic(() => import('@/components/features/vehicle-plate-identifier'), { loading: () => <LoadingComponent /> });
-const TextAnalyzer = dynamic(() => import('@/components/features/text-analyzer'), { loading: () => <LoadingComponent /> });
-const ImageOptimizer = dynamic(() => import('@/components/features/image-optimizer'), { loading: () => <LoadingComponent /> });
-const TextSummarizer = dynamic(() => import('@/components/features/text-summarizer'), { loading: () => <LoadingComponent /> });
-const RialTomanConverter = dynamic(() => import('@/components/features/rial-toman-converter'), { loading: () => <LoadingComponent /> });
-const SavingsCalculator = dynamic(() => import('@/components/features/savings-calculator'), { loading: () => <LoadingComponent /> });
-const NationalIdValidator = dynamic(() => import('@/components/features/national-id-validator'), { loading: () => <LoadingComponent /> });
-const WorkoutTimer = dynamic(() => import('@/components/features/workout-timer'), { loading: () => <LoadingComponent /> });
-const ShebaConverter = dynamic(() => import('@/components/features/sheba-converter'), { loading: () => <LoadingComponent /> });
-const QrCodeGenerator = dynamic(() => import('@/components/features/qr-code-generator'), { loading: () => <LoadingComponent /> });
-const QrCodeReader = dynamic(() => import('@/components/features/qr-code-reader'), { loading: () => <LoadingComponent /> });
-const TicTacToe = dynamic(() => import('@/components/features/tic-tac-toe'), { loading: () => <LoadingComponent /> });
-const RockPaperScissors = dynamic(() => import('@/components/features/rock-paper-scissors'), { loading: () => <LoadingComponent /> });
-const Hangman = dynamic(() => import('@/components/features/hangman'), { loading: () => <LoadingComponent /> });
-const LegalFinancialChatbot = dynamic(() => import('@/components/features/legal-financial-chatbot'), { loading: () => <LoadingComponent /> });
-const SignatureGenerator = dynamic(() => import('@/components/features/signature-generator'), { loading: () => <LoadingComponent /> });
-const MemoryGame = dynamic(() => import('@/components/features/memory-game'), { loading: () => <LoadingComponent /> });
-const GuessTheNumber = dynamic(() => import('@/components/features/guess-the-number'), { loading: () => <LoadingComponent /> });
-const ConnectFour = dynamic(() => import('@/components/features/connect-four'), { loading: () => <LoadingComponent /> });
-const SimonSays = dynamic(() => import('@/components/features/simon-says'), { loading: () => <LoadingComponent /> });
-const OthelloGame = dynamic(() => import('@/components/features/othello-game'), { loading: () => <LoadingComponent /> });
-const TextToSpeech = dynamic(() => import('@/components/features/text-to-speech'), { loading: () => <LoadingComponent /> });
-const Game2048 = dynamic(() => import('@/components/features/game-2048'), { loading: () => <LoadingComponent /> });
-const LotteryTool = dynamic(() => import('@/components/features/lottery-tool'), { loading: () => <LoadingComponent /> });
-const EscapeFromTheBill = dynamic(() => import('@/components/features/escape-from-the-bill'), { loading: () => <LoadingComponent /> });
-const InvoiceGenerator = dynamic(() => import('@/components/features/invoice-generator'), { loading: () => <LoadingComponent /> });
-const ColorConverter = dynamic(() => import('@/components/features/color-converter'), { loading: () => <LoadingComponent /> });
-const Base64Converter = dynamic(() => import('@/components/features/base64-converter'), { loading: () => <LoadingComponent /> });
-const LinkShortener = dynamic(() => import('@/components/features/link-shortener'), { loading: () => <LoadingComponent /> });
-const SocialPostGenerator = dynamic(() => import('@/components/features/social-post-generator'), { loading: () => <LoadingComponent /> });
+const AdvancedLivePrices = dynamic(() => import('@/components/features/advanced-live-prices'), { loading: () => <LoadingComponent />, ssr: false });
+const UnitConverter = dynamic(() => import('@/components/features/unit-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const CurrencyConverter = dynamic(() => import('@/components/features/currency-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const DateConverter = dynamic(() => import('@/components/features/date-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const CryptoConverter = dynamic(() => import('@/components/features/crypto-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const AgeCalculator = dynamic(() => import('@/components/features/age-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const BmiCalculator = dynamic(() => import('@/components/features/bmi-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const PercentageCalculator = dynamic(() => import('@/components/features/percentage-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const LoanCalculator = dynamic(() => import('@/components/features/loan-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const Stopwatch = dynamic(() => import('@/components/features/stopwatch'), { loading: () => <LoadingComponent />, ssr: false });
+const CountdownTimer = dynamic(() => import('@/components/features/countdown-timer'), { loading: () => <LoadingComponent />, ssr: false });
+const DepositCalculator = dynamic(() => import('@/components/features/deposit-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const NumberToWordsConverter = dynamic(() => import('@/components/features/number-to-words-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const NumberSystemConverter = dynamic(() => import('@/components/features/number-system-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const PasswordGenerator = dynamic(() => import('@/components/features/password-generator'), { loading: () => <LoadingComponent />, ssr: false });
+const RandomNumberGenerator = dynamic(() => import('@/components/features/random-number-generator'), { loading: () => <LoadingComponent />, ssr: false });
+const BinaryConverter = dynamic(() => import('@/components/features/binary-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const DistanceCalculator = dynamic(() => import('@/components/features/distance-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const VehiclePlateIdentifier = dynamic(() => import('@/components/features/vehicle-plate-identifier'), { loading: () => <LoadingComponent />, ssr: false });
+const TextAnalyzer = dynamic(() => import('@/components/features/text-analyzer'), { loading: () => <LoadingComponent />, ssr: false });
+const ImageOptimizer = dynamic(() => import('@/components/features/image-optimizer'), { loading: () => <LoadingComponent />, ssr: false });
+const TextSummarizer = dynamic(() => import('@/components/features/text-summarizer'), { loading: () => <LoadingComponent />, ssr: false });
+const RialTomanConverter = dynamic(() => import('@/components/features/rial-toman-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const SavingsCalculator = dynamic(() => import('@/components/features/savings-calculator'), { loading: () => <LoadingComponent />, ssr: false });
+const NationalIdValidator = dynamic(() => import('@/components/features/national-id-validator'), { loading: () => <LoadingComponent />, ssr: false });
+const WorkoutTimer = dynamic(() => import('@/components/features/workout-timer'), { loading: () => <LoadingComponent />, ssr: false });
+const ShebaConverter = dynamic(() => import('@/components/features/sheba-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const QrCodeGenerator = dynamic(() => import('@/components/features/qr-code-generator'), { loading: () => <LoadingComponent />, ssr: false });
+const QrCodeReader = dynamic(() => import('@/components/features/qr-code-reader'), { loading: () => <LoadingComponent />, ssr: false });
+const TicTacToe = dynamic(() => import('@/components/features/tic-tac-toe'), { loading: () => <LoadingComponent />, ssr: false });
+const RockPaperScissors = dynamic(() => import('@/components/features/rock-paper-scissors'), { loading: () => <LoadingComponent />, ssr: false });
+const Hangman = dynamic(() => import('@/components/features/hangman'), { loading: () => <LoadingComponent />, ssr: false });
+const LegalFinancialChatbot = dynamic(() => import('@/components/features/legal-financial-chatbot'), { loading: () => <LoadingComponent />, ssr: false });
+const SignatureGenerator = dynamic(() => import('@/components/features/signature-generator'), { loading: () => <LoadingComponent />, ssr: false });
+const MemoryGame = dynamic(() => import('@/components/features/memory-game'), { loading: () => <LoadingComponent />, ssr: false });
+const GuessTheNumber = dynamic(() => import('@/components/features/guess-the-number'), { loading: () => <LoadingComponent />, ssr: false });
+const ConnectFour = dynamic(() => import('@/components/features/connect-four'), { loading: () => <LoadingComponent />, ssr: false });
+const SimonSays = dynamic(() => import('@/components/features/simon-says'), { loading: () => <LoadingComponent />, ssr: false });
+const OthelloGame = dynamic(() => import('@/components/features/othello-game'), { loading: () => <LoadingComponent />, ssr: false });
+const TextToSpeech = dynamic(() => import('@/components/features/text-to-speech'), { loading: () => <LoadingComponent />, ssr: false });
+const Game2048 = dynamic(() => import('@/components/features/game-2048'), { loading: () => <LoadingComponent />, ssr: false });
+const LotteryTool = dynamic(() => import('@/components/features/lottery-tool'), { loading: () => <LoadingComponent />, ssr: false });
+const EscapeFromTheBill = dynamic(() => import('@/components/features/escape-from-the-bill'), { loading: () => <LoadingComponent />, ssr: false });
+const InvoiceGenerator = dynamic(() => import('@/components/features/invoice-generator'), { loading: () => <LoadingComponent />, ssr: false });
+const ColorConverter = dynamic(() => import('@/components/features/color-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const Base64Converter = dynamic(() => import('@/components/features/base64-converter'), { loading: () => <LoadingComponent />, ssr: false });
+const LinkShortener = dynamic(() => import('@/components/features/link-shortener'), { loading: () => <LoadingComponent />, ssr: false });
+const SocialPostGenerator = dynamic(() => import('@/components/features/social-post-generator'), { loading: () => <LoadingComponent />, ssr: false });
 
 
 const OthelloIcon = () => (
@@ -114,11 +114,11 @@ const toolCategories = [
        { id: 'text-summarizer', title: 'خلاصه‌ساز هوشمند', icon: <BookText className="h-8 w-8 text-cyan-400" />, component: TextSummarizer },
        { id: 'legal-financial-chatbot', title: 'چت‌بات حقوقی و مالی', icon: <Bot className="h-8 w-8 text-blue-400" />, component: LegalFinancialChatbot },
        { id: 'text-to-speech', title: 'نوشتار به گفتار', icon: <BookText className="h-8 w-8 text-fuchsia-400" />, component: TextToSpeech },
-       { id: 'social-post-generator', title: 'ربات تولید پست', icon: <RectangleEllipsis className="h-8 w-8 text-rose-400" />, component: SocialPostGenerator },
+       { id: 'social-post-generator', title: 'هوش مصنوعی تولید پست', icon: <RectangleEllipsis className="h-8 w-8 text-rose-400" />, component: SocialPostGenerator },
        { id: 'book-reader', title: 'کتابخوان آنلاین (ترجمه)', icon: <BookText className="h-8 w-8 text-lime-400" />, isWip: true },
-       { id: 'pdf-word-converter', title: 'PDF ↔ Word (و بالعکس)', icon: <RectangleEllipsis className="h-8 w-8 text-blue-400" />, isWip: true },
-       { id: 'pdf-image-converter', title: 'PDF ↔ عکس (و برعکس)', icon: <RectangleEllipsis className="h-8 w-8 text-green-400" />, isWip: true },
-       { id: 'ocr', title: 'استخراج متن از PDF و عکس (OCR)', icon: <RectangleEllipsis className="h-8 w-8 text-indigo-400" />, isWip: true },
+       { id: 'pdf-word-converter', title: 'PDF ↔ Word', icon: <RectangleEllipsis className="h-8 w-8 text-blue-400" />, isWip: true },
+       { id: 'pdf-image-converter', title: 'PDF ↔ عکس', icon: <RectangleEllipsis className="h-8 w-8 text-green-400" />, isWip: true },
+       { id: 'ocr', title: 'استخراج متن از PDF', icon: <RectangleEllipsis className="h-8 w-8 text-indigo-400" />, isWip: true },
     ]
   },
   {
